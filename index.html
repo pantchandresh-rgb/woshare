@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Womshare | Safe Carpooling for Women</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <style>
+        .glass-nav { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(10px); }
+        .hero-gradient { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .text-gradient { background: linear-gradient(to right, #f687b3, #9f7aea); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+
+    <nav class="fixed w-full z-50 glass-nav border-b border-purple-100">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-purple-700">Womshare</h1>
+            <div class="hidden md:flex space-x-8 font-medium">
+                <a href="find-ride.html" class="hover:text-purple-600">Find a Ride</a>
+                <a href="offer-ride.html" class="hover:text-purple-600">Offer a Ride</a>
+                <a href="safety.html" class="hover:text-purple-600">Safety</a>
+            </div>
+            <button class="bg-purple-600 text-white px-6 py-2 rounded-full hover:bg-purple-700 transition">Login</button>
+        </div>
+    </nav>
+
+    <section class="pt-32 pb-20 hero-gradient text-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2" data-aos="fade-right">
+                <h2 class="text-5xl font-extrabold mb-6 leading-tight">Safe carpooling for women, <br><span class="text-coral-300">by women.</span></h2>
+                <p class="text-lg mb-8 opacity-90">Commute between Ghaziabad and Noida with trusted sisters. Split fuel, reduce traffic, and stay safe.</p>
+                <div class="flex space-x-4">
+                    <a href="find-ride.html" class="bg-white text-purple-700 px-8 py-3 rounded-xl font-bold shadow-lg hover:scale-105 transition">Find a Ride</a>
+                    <a href="offer-ride.html" class="border-2 border-white px-8 py-3 rounded-xl font-bold hover:bg-white hover:text-purple-700 transition">Offer a Ride</a>
+                </div>
+            </div>
+            <div class="md:w-1/2 mt-12 md:mt-0 relative" data-aos="zoom-in">
+                <div class="w-full h-64 bg-white/10 rounded-3xl backdrop-blur-md border border-white/20 flex items-center justify-center">
+                    <p>✨ Animation: Women commuting happily ✨</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 max-w-7xl mx-auto px-4">
+        <h3 class="text-3xl font-bold text-center mb-12">Our Top-Rated Drivers</h3>
+        <div class="swiper driverSwiper">
+            <div class="swiper-wrapper" id="driver-list">
+                <div class="swiper-slide bg-white p-6 rounded-3xl shadow-sm border border-gray-100">
+                    <img src="https://i.pravatar.cc/150?u=neha" class="w-20 h-20 rounded-full mx-auto mb-4 border-4 border-purple-100">
+                    <h4 class="text-center font-bold">Neha Sharma</h4>
+                    <p class="text-center text-sm text-gray-500 mb-4">Hyundai i20 • 4.9⭐</p>
+                    <div class="text-xs bg-purple-50 text-purple-700 p-2 rounded-lg text-center font-semibold">Ghaziabad ↔ Noida 62</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+        new Swiper(".driverSwiper", { slidesPerView: 3, spaceBetween: 30, pagination: { el: ".swiper-pagination", clickable: true } });
+    </script>
+</body>
+</html>

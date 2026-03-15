@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offer a Ride | Womshare</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+<body class="bg-gray-50">
+    <div class="max-w-2xl mx-auto px-4 py-12">
+        <a href="index.html" class="text-purple-600 font-semibold flex items-center mb-8">← Back to Home</a>
+        
+        <div class="bg-white rounded-3xl shadow-xl p-8 border border-purple-50" data-aos="zoom-in">
+            <h1 class="text-3xl font-bold text-gray-800 mb-2">Offer a Ride</h1>
+            <p class="text-gray-500 mb-8">Help a sister commute and split your fuel costs.</p>
+
+            <form id="offerRideForm" class="space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">Driver Name</label>
+                        <input type="text" id="driver_name" required class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl outline-none focus:border-purple-500" placeholder="e.g. Neha Sharma">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">Car Model</label>
+                        <input type="text" id="car_model" required class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl outline-none focus:border-purple-500" placeholder="e.g. Hyundai i20">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">Pickup Location</label>
+                        <select id="start_location" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl outline-none focus:border-purple-500">
+                            <option>Ghaziabad</option>
+                            <option>Noida Sector 62</option>
+                            <option>Noida Sector 63</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">Destination</label>
+                        <select id="destination" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl outline-none focus:border-purple-500">
+                            <option>Noida Sector 62</option>
+                            <option>Noida Sector 63</option>
+                            <option>Ghaziabad</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-3 gap-4">
+                    <div class="col-span-1">
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">Time</label>
+                        <input type="time" id="departure_time" required class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl outline-none focus:border-purple-500">
+                    </div>
+                    <div class="col-span-1">
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">Seats</label>
+                        <input type="number" id="seats_available" min="1" max="4" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl outline-none focus:border-purple-500">
+                    </div>
+                    <div class="col-span-1">
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">Price (₹)</label>
+                        <input type="number" id="price_per_seat" placeholder="40" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl outline-none focus:border-purple-500">
+                    </div>
+                </div>
+
+                <button type="submit" class="w-full bg-purple-600 text-white py-4 rounded-2xl font-bold text-lg hover:bg-purple-700 shadow-lg transition-transform hover:scale-[1.02]">
+                    Post This Ride
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script type="module">
+        import { postRide } from './js/firestore.js';
+        AOS.init();
+
+        document.getElementById('offerRideForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = {
+                driver_name: document.getElementById('driver_name').value,
+                car_model: document.getElementById('car_model').value,
+                start_location: document.getElementById('start_location').value,
+                destination: document.getElementById('destination').value,
+                departure_time: document.getElementById('departure_time').value,
+                seats_available: document.getElementById('seats_available').value,
+                price_per_seat: document.getElementById('price_per_seat').value,
+                driver_phone: "919876543210" // Mockup phone from Auth
+            };
+            await postRide(formData);
+        });
+    </script>
+</body>
+</html>

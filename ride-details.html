@@ -1,0 +1,13 @@
+// Function to generate WhatsApp link
+function bookViaWhatsApp(driverPhone, route, time) {
+    const message = `Hello, I found your ride on Womshare.\nRoute: ${route}\nTime: ${time}\nI would like to book 1 seat.`;
+    const encodedMsg = encodeURIComponent(message);
+    window.open(`https://wa.me/${driverPhone}?text=${encodedMsg}`, '_blank');
+}
+
+// Payment UI component (Mockup)
+function showPaymentQR(amount, upiId) {
+    // In a real app, use a library like 'qrcode.js'
+    const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=upi://pay?pa=${upiId}&pn=WomshareDriver&am=${amount}&cu=INR`;
+    document.getElementById('qr-container').innerHTML = `<img src="${qrUrl}" alt="UPI QR">`;
+}
