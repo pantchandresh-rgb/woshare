@@ -2,32 +2,44 @@
 
 :root {
     --wom-purple: #7c3aed;
+    --wom-purple-light: #a855f7;
     --wom-teal: #2dd4bf;
-    --wom-coral: #fb7185;
 }
 
 body {
     font-family: 'Plus Jakarta Sans', sans-serif;
+    scroll-behavior: smooth;
 }
 
-.bg-gradient-soft {
-    background: linear-gradient(135deg, #f3e8ff 0%, #e0f2fe 100%);
+.glass-nav {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
 
-.ride-card {
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+.hero-gradient {
+    background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
+}
+
+.float-anim {
+    animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
 }
 
 .ride-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 20px 25px -5px rgba(124, 58, 237, 0.1), 0 10px 10px -5px rgba(124, 58, 237, 0.04);
+    box-shadow: 0 20px 25px -5px rgba(124, 58, 237, 0.1);
 }
 
-/* Moving Illustration Animation */
-@keyframes float {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-20px); }
-    100% { transform: translateY(0px); }
+.swiper-pagination-bullet-active {
+    background: var(--wom-purple) !important;
 }
 
-.float-anim { animation: float 4s ease-in-out infinite; }
+footer a:hover {
+    color: var(--wom-purple);
+    text-decoration: underline;
+}

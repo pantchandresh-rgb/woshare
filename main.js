@@ -1,62 +1,56 @@
-// Initialize Animations
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Initialize AOS (Animate on Scroll)
+    // 1. Initialize Scroll Animations (AOS)
     if (typeof AOS !== 'undefined') {
-        AOS.init({
-            duration: 800,
-            easing: 'ease-in-out',
-            once: true,
-            mirror: false
-        });
+        AOS.init({ duration: 1000, once: true });
     }
 
-    // 2. Sticky Navbar Logic
+    // 2. Navbar Scroll Effect
     const nav = document.querySelector('nav');
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
-            nav.classList.add('shadow-md', 'py-2');
-            nav.classList.remove('py-3');
+            nav.classList.add('py-2', 'shadow-lg');
+            nav.classList.remove('py-4');
         } else {
-            nav.classList.remove('shadow-md', 'py-2');
-            nav.classList.add('py-3');
+            nav.classList.add('py-4');
+            nav.classList.remove('py-2', 'shadow-lg');
         }
     });
 
-    // 3. Dynamic WhatsApp Link Generator (Utility)
-    window.generateWALink = (phone, route, time) => {
-        const baseUrl = "https://wa.me/";
-        const cleanPhone = phone.replace(/\D/g, ''); // Remove non-digits
-        const message = encodeURIComponent(
-            `Hello! I found your ride on Womshare.\n📍 Route: ${route}\n⏰ Time: ${time}\nI'd like to book a seat. Is it available?`
-        );
-        return `${baseUrl}${cleanPhone}?text=${message}`;
-    };
+    // 3. Populate Driver Slider
+    const driverList = document.getElementById('driver-list');
+    if (driverList) {
+        const drivers = [
+            { name: "Neha Sharma", car: "Hyundai i20", img: "https://randomuser.me/api/portraits/women/44.jpg", route: "Ghaziabad ↔ Noida 62" },
+            { name: "Priya Mehta", car: "Maruti Baleno", img: "https://randomuser.me/api/portraits/women/65.jpg", route: "Noida 63 ↔ Ghaziabad" },
+            { name: "Aditi Singh", car: "Honda City", img: "https://randomuser.me/api/portraits/women/22.jpg", route: "Ghaziabad ↔ Noida 63" },
+            { name: "Kavya Nair", car: "Tata Nexon", img: "https://randomuser.me/api/portraits/women/17.jpg", route: "Noida 62 ↔ Ghaziabad" },
+            { name: "Ritu Kapoor", car: "Maruti Brezza", img: "https://randomuser.me/api/portraits/women/32.jpg", route: "Ghaziabad ↔ Noida 62" }
+        ];
 
-    // 4. Smooth Scroll for Anchor Links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
+        driverList.innerHTML = drivers.map(d => `
+            <div class="swiper-slide bg-white p-8 rounded-[2rem] shadow-sm border border-purple-50 text-center hover:border-purple-200 transition-all">
+                <img src="${d.img}" class="w-24 h-24 rounded-full mx-auto mb-4 border-4 border-white shadow-lg object-cover">
+                <h4 class="font-bold text-gray-800 text-lg">${d.name}</h4>
+                <p class="text-sm text-gray-500 mb-4">${d.car}</p>
+                <div class="text-[10px] uppercase tracking-tighter bg-purple-50 text-purple-700 py-2 px-3 rounded-lg font-bold">${d.route}</div>
+            </div>
+        `).join('');
+
+        // Initialize Swiper
+        new Swiper(".driverSwiper", {
+            slidesPerView: 1,
+            spaceBetween: 20,
+            pagination: { el: ".swiper-pagination", clickable: true },
+            breakpoints: {
+                640: { slidesPerView: 2 },
+                1024: { slidesPerView: 3 }
+            }
         });
-    });
-});
+    }
 
-// 5. Global Error Handling for UI
-window.showToast = (message, type = 'info') => {
-    const toast = document.createElement('div');
-    toast.className = `fixed bottom-5 right-5 px-6 py-3 rounded-xl text-white font-bold transition-all transform translate-y-20 z-[100]`;
-    toast.style.backgroundColor = type === 'error' ? '#fb7185' : '#7c3aed';
-    toast.innerText = message;
-    
-    document.body.appendChild(toast);
-    
-    // Animate in
-    setTimeout(() => toast.style.transform = 'translateY(0)', 100);
-    // Remove after 3s
-    setTimeout(() => {
-        toast.style.transform = 'translateY(20px)';
-        setTimeout(() => toast.remove(), 500);
-    }, 3000);
-};
+    // 4. WhatsApp Booking Helper
+    window.bookRide = (phone, route, time) => {
+        const msg = encodeURIComponent(`Hello! I saw your ride on Womshare for ${route} at ${time}. Can I book a seat?`);
+        window.open(`https://wa.me/${phone}?text=${msg}`, '_blank');
+    };
+});
