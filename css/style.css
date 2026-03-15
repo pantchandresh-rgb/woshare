@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --wom-purple: #7c3aed;
+    --wom-purple-light: #a855f7;
+    --wom-teal: #2dd4bf;
+    --wom-dark: #1f2937;
+}
+
+/* Global */
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    scroll-behavior: smooth;
+    color: var(--wom-dark);
+}
+
+
+/* Glass Navbar */
+
+.glass-nav {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: all 0.3s ease;
+}
+
+
+/* Hero Gradient */
+
+.hero-gradient {
+    background: linear-gradient(135deg, var(--wom-purple) 0%, var(--wom-purple-light) 100%);
+}
+
+
+/* Floating Illustration */
+
+.float-anim {
+    animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%,100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-18px);
+    }
+}
+
+
+/* Ride / Driver Cards */
+
+.ride-card {
+    transition: all 0.3s ease;
+}
+
+.ride-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 30px rgba(124, 58, 237, 0.12);
+}
+
+
+/* Driver Swiper */
+
+.swiper {
+    padding-bottom: 40px;
+}
+
+.swiper-slide {
+    background: white;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+}
+
+.swiper-slide:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 30px rgba(124,58,237,0.12);
+}
+
+.swiper-pagination-bullet {
+    background: #d1d5db;
+    opacity: 1;
+}
+
+.swiper-pagination-bullet-active {
+    background: var(--wom-purple) !important;
+}
+
+
+/* Buttons */
+
+.btn-primary {
+    background: var(--wom-purple);
+    color: white;
+    transition: all 0.25s ease;
+}
+
+.btn-primary:hover {
+    background: var(--wom-purple-light);
+    transform: translateY(-2px);
+}
+
+
+/* Footer */
+
+footer a {
+    transition: color 0.2s ease;
+}
+
+footer a:hover {
+    color: var(--wom-purple);
+    text-decoration: underline;
+}
+
+
+/* Responsive Tweaks */
+
+@media (max-width: 768px) {
+
+.hero-gradient h2 {
+    font-size: 2.2rem;
+}
+
+.swiper-slide {
+    padding: 18px;
+}
+
+}
