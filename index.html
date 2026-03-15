@@ -8,44 +8,24 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap');
-        
-        :root {
-            --wom-purple: #7c3aed;
-        }
-
-        body { font-family: 'Plus Jakarta Sans', sans-serif; }
-
-        /* Animation & UI Fixes */
-        .glass-nav { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px); }
-        .hero-gradient { background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%); }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-        .float-anim { animation: float 4s ease-in-out infinite; }
-
-        .swiper { width: 100%; padding-bottom: 50px; }
-        .swiper-slide { height: auto; }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body class="bg-gray-50">
 
-    <nav class="fixed w-full z-50 glass-nav border-b border-purple-100 py-4 transition-all" id="mainNav">
+    <nav class="fixed w-full z-50 glass-nav border-b border-purple-100 py-4 transition-all">
         <div class="max-w-7xl mx-auto px-4 flex justify-between items-center">
             <div class="flex items-center space-x-2">
                 <div class="w-8 h-8 bg-purple-600 rounded-lg flex items-center justify-center text-white font-bold">W</div>
-                <h1 class="text-2xl font-extrabold text-purple-700 tracking-tight underline decoration-teal-400">Womshare</h1>
+                <h1 class="text-2xl font-extrabold text-purple-700 tracking-tight">Womshare</h1>
             </div>
             <div class="hidden md:flex space-x-8 font-semibold text-gray-700">
-                <a href="find-ride.html" class="hover:text-purple-600">Find a Ride</a>
-                <a href="offer-ride.html" class="hover:text-purple-600">Offer a Ride</a>
-                <a href="safety.html" class="hover:text-purple-600">Safety</a>
+                <a href="find-ride.html" class="hover:text-purple-600 transition">Find a Ride</a>
+                <a href="offer-ride.html" class="hover:text-purple-600 transition">Offer a Ride</a>
+                <a href="safety.html" class="hover:text-purple-600 transition">Safety</a>
             </div>
-            <button onclick="window.location.href='dashboard.html'" class="bg-purple-600 text-white px-6 py-2 rounded-full font-bold hover:bg-purple-700 shadow-lg">Login</button>
+            <button onclick="window.location.href='dashboard.html'" class="bg-purple-600 text-white px-6 py-2 rounded-full font-bold hover:bg-purple-700 shadow-lg shadow-purple-200 transition">
+                Login
+            </button>
         </div>
     </nav>
 
@@ -53,7 +33,8 @@
         <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center">
             <div class="md:w-1/2" data-aos="fade-right">
                 <span class="bg-purple-400/30 text-purple-100 px-4 py-1 rounded-full text-sm font-bold mb-4 inline-block">Exclusive for Women</span>
-                <h2 class="text-5xl md:text-6xl font-extrabold mb-6 leading-tight">Safe carpooling <br><span class="text-purple-200">by women, for women.</span></h2>
+                <h2 class="text-5xl md:text-6xl font-extrabold mb-6 leading-tight">Safe carpooling <br><span class="text-purple-200 underline decoration-teal-400">by women, for women.</span></h2>
+                <p class="text-lg mb-8 opacity-90 leading-relaxed">Trusted commuting between Ghaziabad and Noida. Split fuel costs, reduce traffic, and stay safe with your sisters.</p>
                 <div class="flex flex-col sm:flex-row gap-4">
                     <a href="find-ride.html" class="bg-white text-purple-700 text-center px-8 py-4 rounded-2xl font-bold shadow-xl hover:scale-105 transition">Find a Ride</a>
                     <a href="offer-ride.html" class="border-2 border-white text-center px-8 py-4 rounded-2xl font-bold hover:bg-white hover:text-purple-700 transition">Offer a Ride</a>
@@ -66,10 +47,10 @@
     </section>
 
     <section class="py-12 bg-white border-b text-center">
-        <p class="text-gray-400 uppercase tracking-widest text-[10px] font-bold mb-6">Active Corridor</p>
+        <p class="text-gray-400 uppercase tracking-widest text-xs font-bold mb-6">Demo Corridors</p>
         <div class="flex flex-wrap justify-center gap-4">
-            <span class="px-6 py-3 bg-purple-50 text-purple-700 rounded-xl font-bold border border-purple-100 italic">Ghaziabad ↔ Noida Sec 62</span>
-            <span class="px-6 py-3 bg-purple-50 text-purple-700 rounded-xl font-bold border border-purple-100 italic">Ghaziabad ↔ Noida Sec 63</span>
+            <span class="px-6 py-3 bg-purple-50 text-purple-700 rounded-xl font-bold border border-purple-100">Ghaziabad ↔ Noida Sec 62</span>
+            <span class="px-6 py-3 bg-purple-50 text-purple-700 rounded-xl font-bold border border-purple-100">Ghaziabad ↔ Noida Sec 63</span>
         </div>
     </section>
 
@@ -86,62 +67,31 @@
         <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-12 text-gray-600">
             <div class="col-span-1 md:col-span-2">
                 <h1 class="text-2xl font-bold text-purple-700 mb-4">Womshare</h1>
-                <p class="max-w-sm">Safe, reliable, women-only carpooling for daily commuters.</p>
+                <p class="max-w-sm leading-relaxed">Empowering women through safe mobility. Join our community for a safer, smarter commute.</p>
             </div>
             <div>
                 <h4 class="font-bold text-gray-800 mb-4">Quick Links</h4>
-                <ul class="space-y-2 text-sm">
-                    <li><a href="safety.html" class="hover:underline">Safety Promise</a></li>
-                    <li><a href="find-ride.html" class="hover:underline">Find a Ride</a></li>
+                <ul class="space-y-3 text-sm">
+                    <li><a href="safety.html">Safety Promise</a></li>
+                    <li><a href="find-ride.html">Find a Ride</a></li>
+                    <li><a href="offer-ride.html">Offer a Ride</a></li>
                 </ul>
             </div>
             <div>
                 <h4 class="font-bold text-gray-800 mb-4">Legal</h4>
-                <ul class="space-y-2 text-sm">
-                    <li><a href="terms.html" class="hover:underline">Terms of Service</a></li>
-                    <li><a href="privacy.html" class="hover:underline">Privacy Policy</a></li>
+                <ul class="space-y-3 text-sm">
+                    <li><a href="terms.html">Terms & Conditions</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
                 </ul>
             </div>
+        </div>
+        <div class="text-center mt-16 text-xs text-gray-400">
+            &copy; 2026 Womshare. All rights reserved.
         </div>
     </footer>
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            AOS.init({ duration: 1000, once: true });
-
-            const drivers = [
-                { name: "Neha Sharma", car: "Hyundai i20", img: "https://randomuser.me/api/portraits/women/44.jpg", route: "Ghaziabad ↔ Noida 62" },
-                { name: "Priya Mehta", car: "Maruti Baleno", img: "https://randomuser.me/api/portraits/women/65.jpg", route: "Noida 63 ↔ Ghaziabad" },
-                { name: "Aditi Singh", car: "Honda City", img: "https://randomuser.me/api/portraits/women/22.jpg", route: "Ghaziabad ↔ Noida 63" },
-                { name: "Kavya Nair", car: "Tata Nexon", img: "https://randomuser.me/api/portraits/women/17.jpg", route: "Noida 62 ↔ Ghaziabad" },
-                { name: "Ritu Kapoor", car: "Maruti Brezza", img: "https://randomuser.me/api/portraits/women/32.jpg", route: "Ghaziabad ↔ Noida 62" }
-            ];
-
-            const driverList = document.getElementById('driver-list');
-            driverList.innerHTML = drivers.map(d => `
-                <div class="swiper-slide bg-white p-8 rounded-[2rem] shadow-sm border border-purple-50 text-center">
-                    <img src="${d.img}" class="w-24 h-24 rounded-full mx-auto mb-4 border-4 border-purple-100 object-cover shadow-md">
-                    <h4 class="font-bold text-gray-800 text-lg">${d.name}</h4>
-                    <p class="text-sm text-gray-500 mb-4">${d.car}</p>
-                    <div class="text-[10px] uppercase bg-purple-50 text-purple-700 py-2 px-3 rounded-lg font-bold">${d.route}</div>
-                </div>
-            `).join('');
-
-            new Swiper(".driverSwiper", {
-                slidesPerView: 1,
-                spaceBetween: 20,
-                pagination: { el: ".swiper-pagination", clickable: true },
-                breakpoints: { 640: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } }
-            });
-
-            window.addEventListener('scroll', () => {
-                const nav = document.getElementById('mainNav');
-                if (window.scrollY > 50) nav.classList.add('shadow-lg');
-                else nav.classList.remove('shadow-lg');
-            });
-        });
-    </script>
+    <script src="js/main.js"></script>
 </body>
 </html>
