@@ -1,260 +1,180 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Womshare - Safe Carpool for Women</title>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
 
-<title>Womshare | Safe Carpooling for Women</title>
-
-<!-- Tailwind -->
-<script src="https://cdn.tailwindcss.com"></script>
-
-<!-- AOS Animation -->
-<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
-
-<!-- Swiper -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
-
-<!-- Custom CSS -->
-<link rel="stylesheet" href="css/style.css">
-
+    <!-- Glide.js for sliders -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.5.2/css/glide.core.min.css">
 </head>
-
-<body class="bg-gray-50">
-
+<body class="bg-gray-100">
 
 <!-- NAVBAR -->
+<header class="bg-purple-600 text-white p-4 flex justify-between items-center">
+    <h1 class="text-xl font-bold">Womshare</h1>
+    <nav class="space-x-4">
+        <a href="find-ride.html" class="hover:underline">Find a Ride</a>
+        <a href="offer-ride.html" class="hover:underline">Offer a Ride</a>
+        <a href="safety.html" class="hover:underline">Safety Promise</a>
+    </nav>
+</header>
 
-<nav class="fixed w-full z-50 glass-nav border-b border-purple-100 py-4 transition-all">
-
-<div class="max-w-7xl mx-auto px-4 flex justify-between items-center">
-
-<div class="flex items-center space-x-2">
-<div class="w-8 h-8 bg-purple-600 rounded-lg flex items-center justify-center text-white font-bold">W</div>
-<h1 class="text-2xl font-extrabold text-purple-700 tracking-tight">Womshare</h1>
-</div>
-
-<div class="hidden md:flex space-x-8 font-semibold text-gray-700">
-
-<a href="find-ride.html" class="hover:text-purple-600 transition">
-Find a Ride
-</a>
-
-<a href="offer-ride.html" class="hover:text-purple-600 transition">
-Offer a Ride
-</a>
-
-<a href="safety.html" class="hover:text-purple-600 transition">
-Safety
-</a>
-
-</div>
-
-<button onclick="window.location.href='dashboard.html'"
-class="bg-purple-600 text-white px-6 py-2 rounded-full font-bold hover:bg-purple-700 shadow-lg shadow-purple-200 transition">
-
-Login
-
-</button>
-
-</div>
-
-</nav>
-
-
-<!-- HERO -->
-
-<section class="pt-32 pb-20 hero-gradient text-white overflow-hidden">
-
-<div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center">
-
-<div class="md:w-1/2" data-aos="fade-right">
-
-<span class="bg-purple-400/30 text-purple-100 px-4 py-1 rounded-full text-sm font-bold mb-4 inline-block">
-Exclusive for Women
-</span>
-
-<h2 class="text-5xl md:text-6xl font-extrabold mb-6 leading-tight">
-
-Safe carpooling <br>
-
-<span class="text-purple-200 underline decoration-teal-400">
-by women, for women.
-</span>
-
-</h2>
-
-<p class="text-lg mb-8 opacity-90 leading-relaxed">
-
-Trusted commuting between Ghaziabad and Noida.  
-Split fuel costs, reduce traffic, and stay safe with your sisters.
-
-</p>
-
-<div class="flex flex-col sm:flex-row gap-4">
-
-<a href="find-ride.html"
-class="bg-white text-purple-700 text-center px-8 py-4 rounded-2xl font-bold shadow-xl hover:scale-105 transition">
-
-Find a Ride
-
-</a>
-
-<a href="offer-ride.html"
-class="border-2 border-white text-center px-8 py-4 rounded-2xl font-bold hover:bg-white hover:text-purple-700 transition">
-
-Offer a Ride
-
-</a>
-
-</div>
-
-</div>
-
-
-<div class="md:w-1/2 mt-12 md:mt-0 flex justify-center float-anim" data-aos="zoom-in">
-
-<img src="https://illustrations.popsy.co/purple/fems-travelling.svg"
-alt="Safety Illustration"
-class="w-10/12 drop-shadow-2xl">
-
-</div>
-
-</div>
-
+<!-- HERO IMAGE SLIDER -->
+<!-- HERO SLIDER -->
+<section class="relative w-full h-screen overflow-hidden">
+    <div id="heroSlider" class="glide">
+        <div class="glide__track" data-glide-el="track">
+            <ul class="glide__slides h-full">
+                <li class="glide__slide h-full"><img src="images/img1.png" class="w-full h-full object-cover" alt="Slider 1"></li>
+                <li class="glide__slide h-full"><img src="images/img2.png" class="w-full h-full object-cover" alt="Slider 2"></li>
+                <li class="glide__slide h-full"><img src="images/img3.jpg" class="w-full h-full object-cover" alt="Slider 3"></li>
+                <li class="glide__slide h-full"><img src="images/img4.jpg" class="w-full h-full object-cover" alt="Slider 4"></li>
+            </ul>
+        </div>
+        <!-- Arrows -->
+        <div class="glide__arrows absolute top-1/2 left-0 right-0 flex justify-between px-4" data-glide-el="controls">
+            <button class="glide__arrow glide__arrow--left text-white text-3xl font-bold" data-glide-dir="<">‹</button>
+            <button class="glide__arrow glide__arrow--right text-white text-3xl font-bold" data-glide-dir=">">›</button>
+        </div>
+    </div>
 </section>
 
 
-
-<!-- CORRIDORS -->
-
-<section class="py-12 bg-white border-b text-center">
-
-<p class="text-gray-400 uppercase tracking-widest text-xs font-bold mb-6">
-Demo Corridors
-</p>
-
-<div class="flex flex-wrap justify-center gap-4">
-
-<span class="px-6 py-3 bg-purple-50 text-purple-700 rounded-xl font-bold border border-purple-100">
-Ghaziabad ↔ Noida Sec 62
-</span>
-
-<span class="px-6 py-3 bg-purple-50 text-purple-700 rounded-xl font-bold border border-purple-100">
-Ghaziabad ↔ Noida Sec 63
-</span>
-
-</div>
-
+    <!-- Overlay buttons/text -->
+    <div class="absolute inset-0 flex flex-col justify-center items-center text-center text-white px-4">
+        <h1 class="text-4xl md:text-6xl font-bold mb-4">Safe Carpooling for Women</h1>
+        <p class="text-lg md:text-2xl mb-6">Share rides. Save fuel. Travel safely.</p>
+        <div class="flex flex-col md:flex-row gap-4">
+            <a href="find-ride.html" class="px-6 py-3 bg-purple-600 rounded-full text-white font-semibold hover:bg-purple-700 transition">
+                Find a Ride
+            </a>
+            <a href="offer-ride.html" class="px-6 py-3 bg-teal-500 rounded-full text-white font-semibold hover:bg-teal-600 transition">
+                Offer a Ride
+            </a>
+            <a href="safety.html" class="px-6 py-3 bg-yellow-500 rounded-full text-white font-semibold hover:bg-yellow-600 transition">
+                Safety Promise
+            </a>
+        </div>
+    </div>
 </section>
 
+<!-- FEATURED DRIVERS / SLIDER -->
+<section class="py-12 bg-gray-100">
+    <div class="max-w-6xl mx-auto px-4">
+        <h2 class="text-3xl font-bold mb-6 text-center">Featured Drivers</h2>
 
+        <div class="glide glide-drivers">
+            <div class="glide__track" data-glide-el="track">
+                <ul class="glide__slides">
 
-<!-- DRIVER SLIDER -->
+                    <li class="glide__slide">
+                        <div class="bg-white p-6 rounded-lg shadow text-center">
+                            <img src="images/driver1.jpg" class="w-32 h-32 rounded-full mx-auto mb-4" alt="Driver 1">
+                            <h3 class="font-bold text-xl">Neha Sharma</h3>
+                            <p>Ghaziabad → Noida Sector 62</p>
+                            <p>9:00 AM | ₹40 | 3 seats</p>
+                        </div>
+                    </li>
 
-<section class="py-20 max-w-7xl mx-auto px-4">
+                    <li class="glide__slide">
+                        <div class="bg-white p-6 rounded-lg shadow text-center">
+                            <img src="images/driver2.jpg" class="w-32 h-32 rounded-full mx-auto mb-4" alt="Driver 2">
+                            <h3 class="font-bold text-xl">Priya Mehta</h3>
+                            <p>Noida Sector 63 → Ghaziabad</p>
+                            <p>6:00 PM | ₹45 | 2 seats</p>
+                        </div>
+                    </li>
 
-<h3 class="text-3xl font-bold text-gray-800 mb-12 text-center">
+                    <li class="glide__slide">
+                        <div class="bg-white p-6 rounded-lg shadow text-center">
+                            <img src="images/driver3.jpg" class="w-32 h-32 rounded-full mx-auto mb-4" alt="Driver 3">
+                            <h3 class="font-bold text-xl">Anita Singh</h3>
+                            <p>Ghaziabad → Noida Sector 63</p>
+                            <p>8:30 AM | ₹35 | 1 seat</p>
+                        </div>
+                    </li>
 
-Our Top-Rated Drivers
-
-</h3>
-
-
-<div class="swiper driverSwiper">
-
-<div class="swiper-wrapper" id="driver-list">
-
-<!-- DRIVER CARDS INJECTED BY JS -->
-
-</div>
-
-<div class="swiper-pagination"></div>
-
-</div>
-
+                </ul>
+            </div>
+        </div>
+    </div>
 </section>
 
-
+<!-- SAFETY / INFO SECTION -->
+<section class="py-12 bg-white">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+        <h2 class="text-3xl font-bold mb-4">Our Safety Promise</h2>
+        <p class="text-lg mb-6">
+            Womshare ensures that all riders and drivers are verified women, providing a safe and comfortable ride experience.
+        </p>
+        <a href="safety.html" class="px-6 py-3 bg-yellow-500 text-white rounded-full font-semibold hover:bg-yellow-600 transition">
+            Learn More
+        </a>
+    </div>
+</section>
 
 <!-- FOOTER -->
-
-<footer class="bg-white border-t border-gray-100 pt-20 pb-10">
-
-<div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-12 text-gray-600">
-
-<div class="col-span-1 md:col-span-2">
-
-<h1 class="text-2xl font-bold text-purple-700 mb-4">
-Womshare
-</h1>
-
-<p class="max-w-sm leading-relaxed">
-
-Empowering women through safe mobility.  
-Join our community for a safer, smarter commute.
-
-</p>
-
-</div>
-
-
-<div>
-
-<h4 class="font-bold text-gray-800 mb-4">
-Quick Links
-</h4>
-
-<ul class="space-y-3 text-sm">
-
-<li><a href="safety.html">Safety Promise</a></li>
-<li><a href="find-ride.html">Find a Ride</a></li>
-<li><a href="offer-ride.html">Offer a Ride</a></li>
-
-</ul>
-
-</div>
-
-
-<div>
-
-<h4 class="font-bold text-gray-800 mb-4">
-Legal
-</h4>
-
-<ul class="space-y-3 text-sm">
-
-<li><a href="terms.html">Terms & Conditions</a></li>
-<li><a href="privacy.html">Privacy Policy</a></li>
-
-</ul>
-
-</div>
-
-</div>
-
-
-<div class="text-center mt-16 text-xs text-gray-400">
-
-© 2026 Womshare. All rights reserved.
-
-</div>
-
+<footer class="bg-purple-600 text-white py-6 mt-12 text-center">
+    <div class="max-w-6xl mx-auto px-4">
+        <h2 class="text-xl font-bold mb-2">Womshare</h2>
+        <p class="mb-2">Safe Carpooling for Women | Ghaziabad ↔ Noida Sector 62 & 63</p>
+        <div class="flex justify-center space-x-4 mb-2">
+            <a href="#" class="hover:underline">Privacy Policy</a>
+            <a href="#" class="hover:underline">Terms of Service</a>
+        </div>
+        <p class="text-sm">&copy; 2026 Womshare. All rights reserved.</p>
+    </div>
 </footer>
 
+<!-- JS FILES -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.5.2/glide.min.js"></script>
+<script src="auth.js"></script>
+<script src="firestore.js"></script>
+<script src="maps.js"></script>
+<script src="main.js"></script>
+
+<script>
+    // Hero slider
+    new Glide('.glide-hero', {
+        type: 'carousel',
+        autoplay: 4000,
+        hoverpause: true,
+        animationDuration: 800,
+        perView: 1
+    }).mount();
 
 
-<!-- SCRIPTS -->
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+      new Glide('#heroSlider', {
+          type: 'carousel',
+          autoplay: 4000, // 4 seconds
+          hoverpause: true,
+          perView: 1,
+          animationDuration: 800
+      }).mount();
+  });
+</script>
 
-<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-<script type="module" src="js/main.js"></script>
-
+    // Featured drivers slider
+    new Glide('.glide-drivers', {
+        type: 'carousel',
+        autoplay: 5000,
+        hoverpause: true,
+        animationDuration: 800,
+        perView: 3,
+        gap: 20,
+        breakpoints: {
+            1024: { perView: 2 },
+            640: { perView: 1 }
+        }
+    }).mount();
+</script>
 
 </body>
-
 </html>
