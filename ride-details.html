@@ -1,13 +1,61 @@
-// Function to generate WhatsApp link
-function bookViaWhatsApp(driverPhone, route, time) {
-    const message = `Hello, I found your ride on Womshare.\nRoute: ${route}\nTime: ${time}\nI would like to book 1 seat.`;
-    const encodedMsg = encodeURIComponent(message);
-    window.open(`https://wa.me/${driverPhone}?text=${encodedMsg}`, '_blank');
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ride Details - Womshare</title>
 
-// Payment UI component (Mockup)
-function showPaymentQR(amount, upiId) {
-    // In a real app, use a library like 'qrcode.js'
-    const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=upi://pay?pa=${upiId}&pn=WomshareDriver&am=${amount}&cu=INR`;
-    document.getElementById('qr-container').innerHTML = `<img src="${qrUrl}" alt="UPI QR">`;
-}
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-100">
+
+    <!-- Header -->
+    <div class="bg-purple-600 text-white p-4 flex justify-between">
+        <h1 class="text-lg font-bold">Womshare</h1>
+        <a href="find-ride.html" class="underline">← Back to Rides</a>
+    </div>
+
+    <!-- Ride Details -->
+    <div class="max-w-xl mx-auto mt-10 bg-white p-6 rounded-lg shadow">
+
+        <h2 class="text-2xl font-bold mb-4">Neha Sharma's Ride</h2>
+
+        <div class="mb-4">
+            <p><span class="font-semibold">Route:</span> Ghaziabad → Noida Sector 62</p>
+            <p><span class="font-semibold">Departure Time:</span> 9:00 AM</p>
+            <p><span class="font-semibold">Seats Available:</span> 3</p>
+            <p><span class="font-semibold">Price per Seat:</span> ₹40</p>
+            <p><span class="font-semibold">Car Model:</span> Hyundai i20</p>
+        </div>
+
+        <!-- UPI / Booking Options -->
+        <div class="mt-6">
+
+            <h3 class="text-lg font-bold mb-2">Book & Pay</h3>
+
+            <p class="mb-2">You can pay directly via UPI or WhatsApp:</p>
+
+            <div class="flex flex-col gap-3">
+
+                <!-- UPI QR Code -->
+                <div class="flex items-center gap-4 bg-gray-100 p-3 rounded">
+                    <img src="images/upi-qrcode-placeholder.png" alt="UPI QR" class="w-24 h-24 border rounded">
+                    <p>Scan QR to pay via Google Pay / PhonePe / PayTM</p>
+                </div>
+
+                <!-- WhatsApp Booking -->
+                <a href="https://wa.me/91XXXXXXXXXX?text=Hi,+I+want+to+book+Neha+Sharma's+ride" 
+                   class="bg-green-500 text-white text-center px-4 py-3 rounded hover:bg-green-600">
+                    Book via WhatsApp
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
