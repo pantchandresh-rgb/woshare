@@ -11,6 +11,12 @@
 
     <!-- Glide CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.5.2/css/glide.core.min.css">
+
+	
+
+<!-- Glide JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.5.2/glide.min.js"></script>
+
 </head>
 <body class="bg-gray-100">
 
@@ -125,43 +131,7 @@
     <p class="text-sm mt-2">&copy; 2026 All rights reserved</p>
 </footer>
 
-<!-- Glide JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.5.2/glide.min.js"></script>
 
-<script>
-window.onload = function () {
-
-    console.log("Page Loaded ✅");
-
-    if (typeof Glide === "undefined") {
-        console.log("Glide NOT loaded ❌");
-        return;
-    }
-
-    console.log("Glide loaded ✅");
-
-    // HERO SLIDER
-    new Glide('#heroSlider', {
-        type: 'carousel',
-        autoplay: 3000,
-        perView: 1,
-        hoverpause: true
-    }).mount();
-
-    // DRIVERS SLIDER
-    new Glide('.glide-drivers', {
-        type: 'carousel',
-        autoplay: 4000,
-        perView: 3,
-        gap: 20,
-        breakpoints: {
-            1024: { perView: 2 },
-            640: { perView: 1 }
-        }
-    }).mount();
-
-};
-</script>
 
 </body>
 </html>
