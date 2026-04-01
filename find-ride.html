@@ -4,92 +4,148 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Find a Ride - Womshare</title>
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 
+<body>
 
+<div class="p-4">
+    <a href="index.html" class="bg-purple-600 text-white px-4 py-2 rounded shadow">
+        ← Back to Home
+    </a>
+</div>
+
+
+<!-- SEARCH SECTION -->
 <section class="pt-24 pb-12 bg-gradient-soft min-h-screen">
     <div class="max-w-4xl mx-auto px-4">
-        <div class="bg-white p-8 rounded-3xl shadow-xl mb-12" data-aos="fade-up">
+
+        <!-- SEARCH BOX -->
+        <div class="bg-white p-8 rounded-3xl shadow-xl mb-12">
             <h2 class="text-2xl font-bold mb-6 text-purple-800">Where are you heading?</h2>
+
             <form id="searchForm" class="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div>
                     <label class="block text-sm font-medium text-gray-600 mb-2">Pickup</label>
-                    <select id="pickup" class="w-full p-3 border border-purple-100 rounded-xl focus:ring-2 focus:ring-purple-400 outline-none">
+                    <select id="pickup" class="w-full p-3 border border-purple-100 rounded-xl">
                         <option value="Ghaziabad">Ghaziabad</option>
                         <option value="Noida Sector 62">Noida Sector 62</option>
                         <option value="Noida Sector 63">Noida Sector 63</option>
                     </select>
                 </div>
+
                 <div>
                     <label class="block text-sm font-medium text-gray-600 mb-2">Destination</label>
-                    <select id="destination" class="w-full p-3 border border-purple-100 rounded-xl focus:ring-2 focus:ring-purple-400 outline-none">
+                    <select id="destination" class="w-full p-3 border border-purple-100 rounded-xl">
                         <option value="Noida Sector 62">Noida Sector 62</option>
                         <option value="Noida Sector 63">Noida Sector 63</option>
                         <option value="Ghaziabad">Ghaziabad</option>
                     </select>
                 </div>
+
                 <div class="flex items-end">
-                    <button type="submit" class="w-full bg-purple-600 text-white py-3 rounded-xl font-bold hover:bg-purple-700 transition">Search Rides</button>
+                    <button type="submit" class="w-full bg-purple-600 text-white py-3 rounded-xl font-bold">
+                        Search Rides
+                    </button>
                 </div>
             </form>
         </div>
 
-        <div id="resultsGrid" class="grid grid-cols-1 gap-6">
+        <!-- 🔥 STATIC DEMO RIDES (NEW SECTION) -->
+        <h2 class="text-2xl font-bold mb-6">Available Rides</h2>
+
+        <div id="staticRides">
+
+<div class="grid md:grid-cols-2 gap-6 mb-10">
+
+</div>
+</div>
+
+            <!-- Ride 1 -->
+            <div class="bg-white p-5 rounded-lg shadow">
+                <h3 class="text-xl font-bold">Ghaziabad → Noida Sector 62</h3>
+                <p>Driver: Neha Sharma</p>
+                <p>9:00 AM | ₹40 | 3 seats</p>
+
+                <a href="https://wa.me/919818185270?text=Hi Neha, I want to book your ride from Ghaziabad to Noida Sector 62 at 9 AM"
+                   target="_blank"
+                   class="bg-green-500 text-white px-4 py-2 rounded mt-3 inline-block">
+                   Book on WhatsApp
+                </a>
             </div>
+
+            <!-- Ride 2 -->
+            <div class="bg-white p-5 rounded-lg shadow">
+                <h3 class="text-xl font-bold">Noida Sector 63 → Ghaziabad</h3>
+                <p>Driver: Priya Mehta</p>
+                <p>6:00 PM | ₹45 | 2 seats</p>
+
+                <a href="https://wa.me/919818185270?text=Hi Priya, I want to book your ride from Noida Sector 63 to Ghaziabad at 6 PM"
+                   target="_blank"
+                   class="bg-green-500 text-white px-4 py-2 rounded mt-3 inline-block">
+                   Book on WhatsApp
+                </a>
+            </div>
+
+        </div>
+
+        <!-- 🔥 DYNAMIC RESULTS (FIREBASE) -->
+        <div id="resultsGrid" class="grid grid-cols-1 gap-6"></div>
+
     </div>
 </section>
 
-<div class="max-w-4xl mx-auto mt-10">
-
-    <h2 class="text-2xl font-bold mb-6">Available Rides</h2>
-
-    <div class="bg-white p-4 rounded shadow mb-4">
-        <h3 class="font-bold">Neha Sharma</h3>
-        <p>Ghaziabad → Noida Sector 62</p>
-        <p>9:00 AM | ₹40 | 3 seats</p>
-
-        <a href="ride-details.html" 
-        class="inline-block mt-2 bg-purple-600 text-white px-4 py-2 rounded">
-        Book Seat
-        </a>
-    </div>
-
-</div>
-
-
+<!-- FIREBASE SEARCH SCRIPT (UNCHANGED) -->
 <script type="module">
     import { searchRides } from './js/firestore.js';
-    
+
     document.getElementById('searchForm').addEventListener('submit', async (e) => {
         e.preventDefault();
+
+        // ✅ Hide static rides
+        document.getElementById('staticRides').style.display = 'none';
+
         const start = document.getElementById('pickup').value;
         const end = document.getElementById('destination').value;
+
         const rides = await searchRides(start, end);
         renderRides(rides);
     });
 
     function renderRides(rides) {
         const grid = document.getElementById('resultsGrid');
-        grid.innerHTML = rides.map(ride => `
-            <div class="ride-card bg-white p-6 rounded-2xl flex flex-col md:flex-row items-center gap-6 border border-purple-50">
-                <img src="${ride.driver_img}" class="w-20 h-20 rounded-full object-cover border-2 border-purple-200">
-                <div class="flex-grow">
-                    <div class="flex justify-between items-start">
-                        <div>
-                            <h3 class="font-bold text-lg">${ride.driver_name}</h3>
-                            <p class="text-sm text-gray-500">${ride.car_model} • ${ride.vehicle_no}</p>
-                        </div>
-                        <span class="text-2xl font-bold text-purple-600">₹${ride.price_per_seat}</span>
-                    </div>
-                    <div class="mt-4 flex gap-4 text-sm text-gray-600">
-                        <span>🕒 ${ride.departure_time}</span>
-                        <span>💺 ${ride.seats_available} seats left</span>
-                    </div>
+
+        if (rides.length === 0) {
+            grid.innerHTML = `
+                <div class="text-center p-6 bg-white rounded shadow">
+                    No rides found for this route.
                 </div>
-                <button onclick="window.location.href='ride-details.html?id=${ride.id}'" class="bg-teal-500 text-white px-6 py-2 rounded-lg font-semibold hover:bg-teal-600 transition">View Details</button>
+            `;
+            return;
+        }
+
+        grid.innerHTML = rides.map(ride => `
+            <div class="bg-white p-6 rounded-2xl flex flex-col md:flex-row items-center gap-6">
+                <img src="${ride.driver_img}" class="w-20 h-20 rounded-full object-cover">
+
+                <div class="flex-grow">
+                    <h3 class="font-bold text-lg">${ride.driver_name}</h3>
+                    <p>${ride.start_location} → ${ride.end_location}</p>
+                    <p>🕒 ${ride.departure_time} | 💺 ${ride.seats_available}</p>
+                    <p class="text-purple-600 font-bold">₹${ride.price_per_seat}</p>
+                </div>
+
+                <a href="https://wa.me/${ride.phone}?text=Hi, I want to book your ride"
+                   target="_blank"
+                   class="bg-green-500 text-white px-4 py-2 rounded">
+                   Book
+                </a>
             </div>
         `).join('');
     }
 </script>
+
+</body>
+</html>

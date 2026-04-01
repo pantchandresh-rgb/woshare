@@ -7,15 +7,8 @@
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
 
-    <!-- Glide CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.5.2/css/glide.core.min.css">
-
-	
-
-<!-- Glide JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.5.2/glide.min.js"></script>
 
 </head>
 <body class="bg-gray-100">
@@ -31,29 +24,19 @@
 </header>
 
 <!-- HERO SLIDER -->
-<section class="relative w-full h-screen overflow-hidden">
 
-    <div id="heroSlider" class="glide h-full">
-        <div class="glide__track" data-glide-el="track">
-            <ul class="glide__slides">
-                <li class="glide__slide h-full"><img src="images/img1.png" class="w-full h-full object-cover"></li>
-                <li class="glide__slide h-full"><img src="images/img2.png" class="w-full h-full object-cover"></li>
-                <li class="glide__slide h-full"><img src="images/img3.jpg" class="w-full h-full object-cover"></li>
-                <li class="glide__slide h-full"><img src="images/img4.jpg" class="w-full h-full object-cover"></li>
-            </ul>
-        </div>
+    <!-- Overlay -->
+    <section class="relative w-full h-screen overflow-hidden">
 
-        <!-- Arrows -->
-        <div class="glide__arrows absolute top-1/2 left-0 right-0 flex justify-between px-4" data-glide-el="controls">
-            <button class="glide__arrow glide__arrow--left text-white text-3xl font-bold" data-glide-dir="<">‹</button>
-            <button class="glide__arrow glide__arrow--right text-white text-3xl font-bold" data-glide-dir=">">›</button>
-        </div>
-    </div>
+    <!-- Image -->
+    <img id="sliderImage" src="images/img1.png"
+         class="w-full h-full object-cover">
 
     <!-- Overlay -->
     <div class="absolute inset-0 flex flex-col justify-center items-center text-center text-white px-4">
         <h1 class="text-4xl md:text-6xl font-bold mb-4">Safe Carpooling for Women</h1>
         <p class="text-lg md:text-2xl mb-6">Share rides. Save fuel. Travel safely.</p>
+
         <div class="flex flex-col md:flex-row gap-4">
             <a href="find-ride.html" class="px-6 py-3 bg-purple-600 rounded-full font-semibold hover:bg-purple-700">
                 Find a Ride
@@ -70,47 +53,106 @@
 </section>
 
 <!-- FEATURED DRIVERS -->
-<section class="py-12 bg-gray-100">
-    <div class="max-w-6xl mx-auto px-4">
-        <h2 class="text-3xl font-bold mb-6 text-center">Featured Drivers</h2>
+<section class="py-16 bg-gray-100">
 
-        <div class="glide glide-drivers">
-            <div class="glide__track" data-glide-el="track">
-                <ul class="glide__slides">
+    <div class="max-w-7xl mx-auto px-4">
 
-                    <li class="glide__slide">
-                        <div class="bg-white p-6 rounded-lg shadow text-center">
-                            <img src="images/drv1.jpg" class="w-32 h-32 rounded-full mx-auto mb-4">
-                            <h3 class="font-bold text-xl">Neha Sharma</h3>
-                            <p>Ghaziabad → Noida Sector 62</p>
-                            <p>9:00 AM | ₹40 | 3 seats</p>
-                        </div>
-                    </li>
+        <h2 class="text-3xl font-bold text-center mb-10">Featured Drivers</h2>
 
-                    <li class="glide__slide">
-                        <div class="bg-white p-6 rounded-lg shadow text-center">
-                            <img src="images/drv2.jpg" class="w-32 h-32 rounded-full mx-auto mb-4">
-                            <h3 class="font-bold text-xl">Priya Mehta</h3>
-                            <p>Noida Sector 63 → Ghaziabad</p>
-                            <p>6:00 PM | ₹45 | 2 seats</p>
-                        </div>
-                    </li>
+        <div class="grid md:grid-cols-5 gap-6 items-center">
 
-                    <li class="glide__slide">
-                        <div class="bg-white p-6 rounded-lg shadow text-center">
-                            <img src="images/drv3.jpg" class="w-32 h-32 rounded-full mx-auto mb-4">
-                            <h3 class="font-bold text-xl">Anita Singh</h3>
-                            <p>Ghaziabad → Noida Sector 63</p>
-                            <p>8:30 AM | ₹35 | 1 seat</p>
-                        </div>
-                    </li>
-
-                </ul>
+            <!-- LEFT INFO -->
+            <div class="bg-purple-50 p-6 rounded-xl text-center col-span-1">
+                <h3 class="font-bold text-lg mb-3">Why Womshare?</h3>
+                <p>✔ Women-only rides</p>
+                <p>✔ Verified drivers</p>
+                <p>✔ Safe & affordable</p>
+                <p>✔ Community driven</p>
             </div>
+
+            <!-- DRIVER 1 -->
+            <div class="bg-white p-6 rounded-xl shadow text-center col-span-1">
+                <img src="images/drv1.jpg" class="w-24 h-24 rounded-full mx-auto mb-3">
+                <h3 class="font-bold">Neha Sharma</h3>
+                <p class="text-sm">Ghaziabad → Noida 62</p>
+                <p class="text-sm">9:00 AM | ₹40</p>
+
+                <a href="https://wa.me/919999999999?text=Hi Neha, I want your ride"
+                   target="_blank"
+                   class="mt-3 inline-block bg-green-500 text-white px-3 py-1 rounded text-sm">
+                   Book
+                </a>
+            </div>
+
+            <!-- DRIVER 2 -->
+            <div class="bg-white p-6 rounded-xl shadow text-center col-span-1">
+                <img src="images/drv2.jpg" class="w-24 h-24 rounded-full mx-auto mb-3">
+                <h3 class="font-bold">Priya Mehta</h3>
+                <p class="text-sm">Noida 63 → Ghaziabad</p>
+                <p class="text-sm">6:00 PM | ₹45</p>
+
+                <a href="https://wa.me/918888888888?text=Hi Priya, I want your ride"
+                   target="_blank"
+                   class="mt-3 inline-block bg-green-500 text-white px-3 py-1 rounded text-sm">
+                   Book
+                </a>
+            </div>
+
+            <!-- DRIVER 3 -->
+            <div class="bg-white p-6 rounded-xl shadow text-center col-span-1">
+                <img src="images/drv3.jpg" class="w-24 h-24 rounded-full mx-auto mb-3">
+                <h3 class="font-bold">Anita Singh</h3>
+                <p class="text-sm">Ghaziabad → Noida 63</p>
+                <p class="text-sm">8:30 AM | ₹35</p>
+
+                <a href="https://wa.me/917777777777?text=Hi Anita, I want your ride"
+                   target="_blank"
+                   class="mt-3 inline-block bg-green-500 text-white px-3 py-1 rounded text-sm">
+                   Book
+                </a>
+            </div>
+
+            <!-- RIGHT CTA -->
+            <div class="bg-teal-50 p-6 rounded-xl text-center col-span-1">
+                <h3 class="font-bold text-lg mb-3">Become a Driver</h3>
+                <p class="text-sm">Earn while you commute</p>
+                <p class="text-sm">Save fuel cost</p>
+
+                <a href="offer-ride.html"
+                   class="mt-3 inline-block bg-teal-500 text-white px-4 py-2 rounded text-sm">
+                   Offer Ride
+                </a>
+            </div>
+
         </div>
+
     </div>
+
 </section>
 
+
+		
+
+
+
+
+            <!-- RIGHT SIDE CTA -->
+            <div class="bg-teal-50 p-6 rounded-xl text-center">
+                <h3 class="font-bold text-xl mb-3">Become a Driver</h3>
+                <p>Earn while you commute</p>
+                <p>Save fuel cost</p>
+
+                <a href="offer-ride.html"
+                   class="mt-4 inline-block bg-teal-500 text-white px-5 py-2 rounded">
+                   Offer a Ride
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
 <!-- SAFETY -->
 <section class="py-12 bg-white">
     <div class="max-w-4xl mx-auto text-center px-4">
@@ -131,6 +173,21 @@
     <p class="text-sm mt-2">&copy; 2026 All rights reserved</p>
 </footer>
 
+<script>
+const images = [
+    "images/img1.png",
+    "images/img2.png",
+    "images/img3.jpg",
+    "images/img4.jpg"
+];
+
+let index = 0;
+
+setInterval(() => {
+    index = (index + 1) % images.length;
+    document.getElementById("sliderImage").src = images[index];
+}, 3000);
+</script>
 
 
 </body>
