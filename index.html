@@ -9,7 +9,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
 
-    <!-- Glide.js for sliders -->
+    <!-- Glide CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.5.2/css/glide.core.min.css">
 </head>
 <body class="bg-gray-100">
@@ -24,46 +24,46 @@
     </nav>
 </header>
 
-<!-- HERO IMAGE SLIDER -->
 <!-- HERO SLIDER -->
 <section class="relative w-full h-screen overflow-hidden">
-    <div id="heroSlider" class="glide">
+
+    <div id="heroSlider" class="glide h-full">
         <div class="glide__track" data-glide-el="track">
-            <ul class="glide__slides h-full">
-                <li class="glide__slide h-full"><img src="images/img1.png" class="w-full h-full object-cover" alt="Slider 1"></li>
-                <li class="glide__slide h-full"><img src="images/img2.png" class="w-full h-full object-cover" alt="Slider 2"></li>
-                <li class="glide__slide h-full"><img src="images/img3.jpg" class="w-full h-full object-cover" alt="Slider 3"></li>
-                <li class="glide__slide h-full"><img src="images/img4.jpg" class="w-full h-full object-cover" alt="Slider 4"></li>
+            <ul class="glide__slides">
+                <li class="glide__slide h-full"><img src="images/img1.png" class="w-full h-full object-cover"></li>
+                <li class="glide__slide h-full"><img src="images/img2.png" class="w-full h-full object-cover"></li>
+                <li class="glide__slide h-full"><img src="images/img3.jpg" class="w-full h-full object-cover"></li>
+                <li class="glide__slide h-full"><img src="images/img4.jpg" class="w-full h-full object-cover"></li>
             </ul>
         </div>
+
         <!-- Arrows -->
         <div class="glide__arrows absolute top-1/2 left-0 right-0 flex justify-between px-4" data-glide-el="controls">
             <button class="glide__arrow glide__arrow--left text-white text-3xl font-bold" data-glide-dir="<">‹</button>
             <button class="glide__arrow glide__arrow--right text-white text-3xl font-bold" data-glide-dir=">">›</button>
         </div>
     </div>
-</section>
 
-
-    <!-- Overlay buttons/text -->
+    <!-- Overlay -->
     <div class="absolute inset-0 flex flex-col justify-center items-center text-center text-white px-4">
         <h1 class="text-4xl md:text-6xl font-bold mb-4">Safe Carpooling for Women</h1>
         <p class="text-lg md:text-2xl mb-6">Share rides. Save fuel. Travel safely.</p>
         <div class="flex flex-col md:flex-row gap-4">
-            <a href="find-ride.html" class="px-6 py-3 bg-purple-600 rounded-full text-white font-semibold hover:bg-purple-700 transition">
+            <a href="find-ride.html" class="px-6 py-3 bg-purple-600 rounded-full font-semibold hover:bg-purple-700">
                 Find a Ride
             </a>
-            <a href="offer-ride.html" class="px-6 py-3 bg-teal-500 rounded-full text-white font-semibold hover:bg-teal-600 transition">
+            <a href="offer-ride.html" class="px-6 py-3 bg-teal-500 rounded-full font-semibold hover:bg-teal-600">
                 Offer a Ride
             </a>
-            <a href="safety.html" class="px-6 py-3 bg-yellow-500 rounded-full text-white font-semibold hover:bg-yellow-600 transition">
+            <a href="safety.html" class="px-6 py-3 bg-yellow-500 rounded-full font-semibold hover:bg-yellow-600">
                 Safety Promise
             </a>
         </div>
     </div>
+
 </section>
 
-<!-- FEATURED DRIVERS / SLIDER -->
+<!-- FEATURED DRIVERS -->
 <section class="py-12 bg-gray-100">
     <div class="max-w-6xl mx-auto px-4">
         <h2 class="text-3xl font-bold mb-6 text-center">Featured Drivers</h2>
@@ -74,7 +74,7 @@
 
                     <li class="glide__slide">
                         <div class="bg-white p-6 rounded-lg shadow text-center">
-                            <img src="images/driver1.jpg" class="w-32 h-32 rounded-full mx-auto mb-4" alt="Driver 1">
+                            <img src="images/drv1.jpg" class="w-32 h-32 rounded-full mx-auto mb-4">
                             <h3 class="font-bold text-xl">Neha Sharma</h3>
                             <p>Ghaziabad → Noida Sector 62</p>
                             <p>9:00 AM | ₹40 | 3 seats</p>
@@ -83,7 +83,7 @@
 
                     <li class="glide__slide">
                         <div class="bg-white p-6 rounded-lg shadow text-center">
-                            <img src="images/driver2.jpg" class="w-32 h-32 rounded-full mx-auto mb-4" alt="Driver 2">
+                            <img src="images/drv2.jpg" class="w-32 h-32 rounded-full mx-auto mb-4">
                             <h3 class="font-bold text-xl">Priya Mehta</h3>
                             <p>Noida Sector 63 → Ghaziabad</p>
                             <p>6:00 PM | ₹45 | 2 seats</p>
@@ -92,7 +92,7 @@
 
                     <li class="glide__slide">
                         <div class="bg-white p-6 rounded-lg shadow text-center">
-                            <img src="images/driver3.jpg" class="w-32 h-32 rounded-full mx-auto mb-4" alt="Driver 3">
+                            <img src="images/drv3.jpg" class="w-32 h-32 rounded-full mx-auto mb-4">
                             <h3 class="font-bold text-xl">Anita Singh</h3>
                             <p>Ghaziabad → Noida Sector 63</p>
                             <p>8:30 AM | ₹35 | 1 seat</p>
@@ -105,68 +105,53 @@
     </div>
 </section>
 
-<!-- SAFETY / INFO SECTION -->
+<!-- SAFETY -->
 <section class="py-12 bg-white">
-    <div class="max-w-4xl mx-auto px-4 text-center">
+    <div class="max-w-4xl mx-auto text-center px-4">
         <h2 class="text-3xl font-bold mb-4">Our Safety Promise</h2>
         <p class="text-lg mb-6">
-            Womshare ensures that all riders and drivers are verified women, providing a safe and comfortable ride experience.
+            Verified women riders & drivers for a safe experience.
         </p>
-        <a href="safety.html" class="px-6 py-3 bg-yellow-500 text-white rounded-full font-semibold hover:bg-yellow-600 transition">
+        <a href="safety.html" class="px-6 py-3 bg-yellow-500 text-white rounded-full">
             Learn More
         </a>
     </div>
 </section>
 
 <!-- FOOTER -->
-<footer class="bg-purple-600 text-white py-6 mt-12 text-center">
-    <div class="max-w-6xl mx-auto px-4">
-        <h2 class="text-xl font-bold mb-2">Womshare</h2>
-        <p class="mb-2">Safe Carpooling for Women | Ghaziabad ↔ Noida Sector 62 & 63</p>
-        <div class="flex justify-center space-x-4 mb-2">
-            <a href="#" class="hover:underline">Privacy Policy</a>
-            <a href="#" class="hover:underline">Terms of Service</a>
-        </div>
-        <p class="text-sm">&copy; 2026 Womshare. All rights reserved.</p>
-    </div>
+<footer class="bg-purple-600 text-white py-6 text-center">
+    <h2 class="text-xl font-bold">Womshare</h2>
+    <p>Safe Carpooling for Women</p>
+    <p class="text-sm mt-2">&copy; 2026 All rights reserved</p>
 </footer>
 
-<!-- JS FILES -->
+<!-- Glide JS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.5.2/glide.min.js"></script>
-<script src="auth.js"></script>
-<script src="firestore.js"></script>
-<script src="maps.js"></script>
-<script src="main.js"></script>
 
 <script>
-    // Hero slider
-    new Glide('.glide-hero', {
+window.onload = function () {
+
+    console.log("Page Loaded ✅");
+
+    if (typeof Glide === "undefined") {
+        console.log("Glide NOT loaded ❌");
+        return;
+    }
+
+    console.log("Glide loaded ✅");
+
+    // HERO SLIDER
+    new Glide('#heroSlider', {
         type: 'carousel',
-        autoplay: 4000,
-        hoverpause: true,
-        animationDuration: 800,
-        perView: 1
+        autoplay: 3000,
+        perView: 1,
+        hoverpause: true
     }).mount();
 
-
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-      new Glide('#heroSlider', {
-          type: 'carousel',
-          autoplay: 4000, // 4 seconds
-          hoverpause: true,
-          perView: 1,
-          animationDuration: 800
-      }).mount();
-  });
-</script>
-
-    // Featured drivers slider
+    // DRIVERS SLIDER
     new Glide('.glide-drivers', {
         type: 'carousel',
-        autoplay: 5000,
-        hoverpause: true,
-        animationDuration: 800,
+        autoplay: 4000,
         perView: 3,
         gap: 20,
         breakpoints: {
@@ -174,6 +159,8 @@
             640: { perView: 1 }
         }
     }).mount();
+
+};
 </script>
 
 </body>
